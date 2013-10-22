@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div ng-controller="FormCtrl" class="demo">
+  <div class="page-header">
+    <h1><a href="//github.com/vinta/Haul">Haul</a> <small>An Extensible Image Crawler</small></h1>
+  </div>
+  <form name="haul_form">
+    <div class="form-group">
+      <input ng-model="url" class="form-control input-lg" type="url" placeholder="Enter a link with http://" required />
+    </div>
+    <div class="btns">
+      <button ng-click="submit()" ng-disabled="haul_form.$invalid" class="btn btn-primary btn-lg">Find Images</button>
+      <button ng-click="clear()" class="btn btn-danger btn-lg btn-last">Clear</button>
+    </div>
+  </form>
+  <div>
+    <div class="page-header">
+      <h2>Result</h2>
+    </div>
+    <pre ng-class="pre_class"><code ng-bind="result | json" class="language-javascript"></code></pre>
+  </div>
+</div>
+{% endblock %}

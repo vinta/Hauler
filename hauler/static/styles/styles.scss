@@ -1,0 +1,73 @@
+@import "bootstrap.scss";
+@import "../bower_components/angular-loading-bar/src/loading-bar.css";
+
+$error_color: #FA787E;
+
+body {
+  // background-color: #f1f1f1;
+  background-color: white;
+  color: #222;
+}
+
+pre {
+  border-radius: 0;
+  font-size: ceil($font-size-base * 0.75);
+  margin-bottom: 40px;
+  overflow-x: auto;
+  white-space: pre;
+  word-wrap: normal;
+
+  &.error_response {
+    background-color: $error_color;
+    color: white;
+  }
+}
+
+// input.ng-invalid.ng-dirty {
+//   background-color: $error_color;
+//   color: white;
+// }
+
+.center-container {
+  position: relative;
+}
+
+.absolute-center {
+  width: 50%;
+  height: 50%;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.page-header {
+  margin-bottom: 40px;
+}
+
+.centered {
+  float: none;
+  margin: 0 auto;
+}
+
+.form-control, .btn {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.btns {
+  margin-top: 40px;
+  text-align: center;
+
+  .btn {
+    margin-right: 20px;
+  }
+
+  .btn-last {
+    margin-right: 0;
+  }
+}
+
+// AngularJS
+[ng-cloak] {
+  display: none !important;
+}

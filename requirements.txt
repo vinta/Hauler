@@ -1,0 +1,6 @@
+Flask==0.10.1
+blinker==1.3
+gunicorn==18.0
+gevent==0.13.8
+raven==3.5.0
+haul==1.3.0

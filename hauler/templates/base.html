@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hauler: demo site for Haul</title>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/styles.css') }}" />
+  <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='libs/prism/prism.css') }}" /> -->
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 centered">
+        {% block content %}{% endblock %}
+      </div>
+    </div>
+  </div>
+  <a href="https://github.com/vinta/Haul"><img style="position: absolute; top: 0; right: 0; border: 0;" src="{{ url_for('static', filename='images/fork-me-on-github.png') }}" alt="Fork me on GitHub"></a>
+  <!-- <script src="{{ url_for('static', filename='libs/prism/prism.js') }}"></script> -->
+  <!-- <script src="{{ url_for('static', filename='bower_components/jquery/jquery.js') }}"></script> -->
+  <script src="{{ url_for('static', filename='bower_components/angular/angular.js') }}"></script>
+  <script src="{{ url_for('static', filename='bower_components/angular-loading-bar/src/loading-bar.js') }}"></script>
+  <!-- <script src="{{ url_for('static', filename='bower_components/angular-route/angular-route.js') }}"></script> -->
+  <!-- <script src="{{ url_for('static', filename='bower_components/nucleus-angular-prism/prism.js') }}"></script> -->
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
