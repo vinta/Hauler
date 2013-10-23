@@ -1,5 +1,6 @@
 # coding: utf-8
 
+import logging
 import os
 
 from flask import Flask, render_template, request
@@ -11,10 +12,18 @@ from api.api import api
 
 app = Flask(__name__)
 app.register_blueprint(api, url_prefix='/api')
-app.config.from_object(os.environ.get('HAULER_CONFIG_PATH', 'config.ProductionConfig'))
 
-# Sentry will read DSN from environment under the SENTRY_DSN key
-sentry = Sentry(app)
+if os.environ.get('HAULER_ENV', None) == 'dev':
+    app.config.from_object('config.DevelopmentConfig')
+else:
+    app.config.from_object('config.ProductionConfig')
+
+    stdout_handler = logging.StreamHandler()
+    app.logger.addHandler(stdout_handler)
+    app.logger.setLevel(logging.INFO)
+
+    # Sentry will read DSN from environment under the SENTRY_DSN key
+    sentry = Sentry(app)
 
 
 # @app.route('/')
