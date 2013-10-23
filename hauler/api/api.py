@@ -1,10 +1,13 @@
 # coding: utf-8
 
-from flask import Blueprint, jsonify, request
+import json
+
+from flask import Blueprint, current_app, jsonify, request, Response
 
 import haul
 
 
+app = current_app
 api = Blueprint('api', __name__)
 
 
@@ -19,7 +22,7 @@ class APIErrorResponse(Exception):
         data = {}
         data['error'] = {}
         data['error']['message'] = self.message
-        # data['error']['status_code'] = self.status_code
+        data['error']['status_code'] = self.status_code
 
         return data
 
@@ -42,6 +45,8 @@ def find_images():
         url = request.values.get('url')
         extend = request.values.get('extend') in ['on', 'true', '1']
 
+    app.logger.info('[find_images] url: %s' % (url))
+
     try:
         result = haul.find_images(url, extend=extend)
     except haul.exceptions.InvalidParameterError as e:
@@ -50,7 +55,11 @@ def find_images():
         raise APIErrorResponse('Content-Type is not supported: %s' % (e.content_type))
     except haul.exceptions.RetrieveError:
         raise APIErrorResponse('Can not fetch this URL')
-    else:
-        output = result.to_dict()
 
-    return jsonify(output)
+    output = result.to_ordered_dict()
+
+    # jsonify() don't preserve dict order
+    json_output = json.dumps(output, indent=2)
+    response = Response(response=json_output, status=200, mimetype='application/json')
+
+    return response
