@@ -16,7 +16,6 @@
     "angular": "1.2.0-rc.2",
     "angular-route": "1.2.0-rc.2",
     "angular-loading-bar": "0.0.4",
-    "sass-bootstrap": "3.0.0",
-    "nucleus-angular-prism": "0.2.1"
+    "sass-bootstrap": "3.0.0"
   }
 }
