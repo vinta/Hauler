@@ -1,9 +1,9 @@
 *.py[cod]
 
 codekit-config.json
-.sass-cache
-.codeintel
-.vagrant
+.sass-cache/
+.codeintel/
+.vagrant/
 
 .DS_STORE
 

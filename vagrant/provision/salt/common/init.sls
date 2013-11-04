@@ -10,14 +10,14 @@ create-user:
     - shell: /bin/bash
     - order: 2
 
-sudoer-file:
-  file.managed:
-    - template: jinja
-    - name: "/etc/sudoers.d/{{ pillar['system']['user'] }}"
-    - source: salt://common/sudoers.template
-    - user: root
-    - group: root
-    - mode: 0440
-
 en_US.UTF-8:
   locale.system
+
+terminal-packages:
+  pkg.installed:
+    - names:
+      - curl
+      - htop
+      - mosh
+      - screen
+      - vim
