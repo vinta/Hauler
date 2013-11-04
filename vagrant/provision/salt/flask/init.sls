@@ -1,5 +1,6 @@
 include:
   - python
+  - python.gevent
   - python.lxml
 
 project-virtualenv:
@@ -29,4 +30,13 @@ project-pip-requirements:
     - user: {{ pillar['system']['user'] }}
     - require:
       - virtualenv: project-virtualenv
+      - pkg: gevent-libs-packages
       - pkg: lxml-libs-packages
+
+pip-bpython:
+  pip.installed:
+    - name: bpython
+    - bin_env: {{ pillar['project']['virtualenv_path'] }}
+    - user: {{ pillar['system']['user'] }}
+    - require:
+      - virtualenv: project-virtualenv
