@@ -11,14 +11,14 @@
   "dependencies": {
     "jquery": ">= 1.9.0"
   },
-  "homepage": "https://github.com/jlong/sass-twitter-bootstrap",
+  "homepage": "https://github.com/jlong/sass-bootstrap",
   "_release": "3.0.0",
   "_resolution": {
     "type": "version",
     "tag": "v3.0.0",
     "commit": "a7388cfd69bedc23bcc56043e0db263027463882"
   },
-  "_source": "git://github.com/jlong/sass-twitter-bootstrap.git",
+  "_source": "git://github.com/jlong/sass-bootstrap.git",
   "_target": "3.0.0",
   "_originalSource": "sass-bootstrap"
 }
