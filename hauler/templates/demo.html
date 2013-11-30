@@ -14,11 +14,10 @@
       <button ng-click="clear()" class="btn btn-danger btn-lg btn-last">Clear</button>
     </div>
   </form>
-  <div>
-    <div class="page-header">
-      <h2>Result</h2>
-    </div>
-    <prism data-lang="'javascript'"></prism>
+  <div ng-view></div>
+  <div class="page-header">
+    <h2>Result</h2>
   </div>
+  <prism data-lang="'javascript'"></prism>
 </div>
 {% endblock %}

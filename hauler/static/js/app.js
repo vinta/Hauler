@@ -1,9 +1,23 @@
 'use strict';
 
 var app = angular.module('app', [
+  'ngRoute',
   'chieffancypants.loadingBar',
   'vinta.prism'
 ]);
+
+app.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.when('/list', {
+      template: '{{ url }}',
+      controller: function($scope, $routeParams) {
+        $scope.url = $routeParams.url;
+      }
+    });
+
+    $routeProvider.otherwise({
+      redirectTo: '/list'
+    });
+}]);
 
 app.controller('FormCtrl', [
   '$scope', '$element', '$http', '$filter',
